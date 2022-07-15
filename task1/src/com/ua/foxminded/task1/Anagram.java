@@ -6,23 +6,21 @@ public class Anagram {
 
     private String reverseString(String text) {
 
-
         StringBuffer result = new StringBuffer();
         Matcher m = Pattern.compile("\\p{L}+").matcher(text);
             while (m.find()) {
+
                 String replacement = new StringBuilder(m.group()).reverse().toString();
                 m.appendReplacement(result, replacement);
             }
 
         m.appendTail(result);
         return result.toString();
-
         }
 
     public String splitStringByWords(String text) {
 
             String[] wordsArray = text.split(" ");
-
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < wordsArray.length; i++) {
 
@@ -31,9 +29,6 @@ public class Anagram {
             }
 
             return result.toString();
-
-
         }
 
     }
-
