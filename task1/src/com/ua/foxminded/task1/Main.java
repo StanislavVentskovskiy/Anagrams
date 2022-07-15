@@ -1,4 +1,4 @@
-package com.ua.foxminded.foxstudent101882.task1;
+package com.ua.foxminded.task1;
 
 import java.util.Scanner;
 

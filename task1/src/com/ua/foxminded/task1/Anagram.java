@@ -1,10 +1,10 @@
-package com.ua.foxminded.foxstudent101882.task1;
+package com.ua.foxminded.task1;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Anagram {
 
-    public static String reverseString(String text) {
+    private String reverseString(String text) {
 
 
         StringBuffer result = new StringBuffer();
@@ -19,7 +19,7 @@ public class Anagram {
 
         }
 
-    public static String splitStringByWords(String text) {
+    public String splitStringByWords(String text) {
 
             String[] wordsArray = text.split(" ");
 
