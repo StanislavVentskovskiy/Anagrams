@@ -4,7 +4,19 @@ import java.util.regex.Pattern;
 
 public class Anagram {
 
-    private String reverseString(String text) {
+        public String splitStringByWords(String text) {
+
+        String[] wordsArray = text.split("((?= )|(?<= ))");
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < wordsArray.length; i++) {
+
+            result.append(reverseString(wordsArray[i]));
+        }
+
+        return result.toString();
+    }
+
+      private String reverseString(String text) {
 
         StringBuffer result = new StringBuffer();
         Matcher m = Pattern.compile("\\p{L}+").matcher(text);
@@ -18,17 +30,5 @@ public class Anagram {
         return result.toString();
         }
 
-    public String splitStringByWords(String text) {
-
-            String[] wordsArray = text.split(" ");
-            StringBuilder result = new StringBuilder();
-            for (int i = 0; i < wordsArray.length; i++) {
-
-                result.append(reverseString(wordsArray[i]));
-                result.append(" ");
-            }
-
-            return result.toString();
-        }
-
     }
+
