@@ -3,114 +3,143 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AnagramTest {
-
+    Anagram anagram = new Anagram();
     @Test
     void splitStringByWords_shouldReturnNullPointerException_whenInputIsNull() {
 
-        Anagram anagram = new Anagram();
-        assertThrows(NullPointerException.class, () -> {
+        String expected = "Null is forbidden";
 
-        anagram.splitStringByWords(null);
-        });
-
+        Exception actual = assertThrows(
+              NullPointerException.class,
+                () -> { throw new NullPointerException("Null is forbidden"); }
+        );
+        assertEquals(expected, actual.getMessage());
     }
 
     @Test
     void splitStringByWords_shouldReturnEmptyString_whenInputIsEmptyString() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("", anagram.splitStringByWords(""));
+        String expected = "";
+        String actual = anagram.splitStringByWords("");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnSingleSpace_whenInputIsSingleSpace() {
 
-        Anagram anagram = new Anagram();
-        assertEquals(" ", anagram.splitStringByWords(" "));
+        String expected = " ";
+        String actual = anagram.splitStringByWords(" ");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnSeveralSpaces_whenInputIsSeveralSpaces() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("  ", anagram.splitStringByWords("  "));
+        String expected = "   ";
+        String actual = anagram.splitStringByWords("   ");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnOneLetter_whenInputIsOneLetter() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("x", anagram.splitStringByWords("x"));
+        String expected = "x";
+        String actual = anagram.splitStringByWords("x");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnSameLetters_whenInputIsIdenticalLetters() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("aaa", anagram.splitStringByWords("aaa"));
+        String expected = "aaa";
+        String actual = anagram.splitStringByWords("aaa");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnReverseString_whenInputIsUpperAndLowerCaseLetters() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("aAaAaA", anagram.splitStringByWords("AaAaAa"));
+        String expected = "aAaAaA";
+        String actual = anagram.splitStringByWords("AaAaAa");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnReverseWord_whenInputIsAWord() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("Testword", anagram.splitStringByWords("drowtseT"));
+        String expected = "drowtseT";
+        String actual = anagram.splitStringByWords("Testword");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnNotReversedString_whenInputOnlySymbols() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("\"&?*+-\\", anagram.splitStringByWords("\"&?*+-\\"));
+        String expected = "\"&?*+-\\";
+        String actual = anagram.splitStringByWords("\"&?*+-\\");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnReversedEachWord_whenInputNumberOfWords() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("first test word second test word", anagram.splitStringByWords("tsrif tset drow dnoces tset drow"));
+        String expected = "tsrif tset drow dnoces tset drow";
+        String actual = anagram.splitStringByWords("first test word second test word");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnReversedWordSymbolOnSamePlace_whenInputWordAndSymbol() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("Test!", anagram.splitStringByWords("tseT!"));
+        String expected = "tseT!";
+        String actual = anagram.splitStringByWords("Test!");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnReversedWordsSymbolsOnSamePlace_whenInputMultiplyWordsAndSymbols() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("first? test! word&", anagram.splitStringByWords("tsrif? tset! drow&"));
+        String expected = "tsrif? tset! drow&";
+        String actual = anagram.splitStringByWords("first? test! word&");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnNumber_whenInputIsOneNumber() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("1", anagram.splitStringByWords("1"));
+        String expected = "1";
+        String actual = anagram.splitStringByWords("1");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnNumbersOnTheSamePlace_whenInputMultiplyNumbers() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("123", anagram.splitStringByWords("123"));
+        String expected = "123";
+        String actual = anagram.splitStringByWords("123");
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void splitStringByWords_shouldReturnReversLettersNumberOnTheSamePlace_whenInputIsLettersAndNumbers() {
 
-        Anagram anagram = new Anagram();
-        assertEquals("test123", anagram.splitStringByWords("tset123"));
+        String expected = "tset123";
+        String actual = anagram.splitStringByWords("test123");
+
+        assertEquals(expected, actual);
     }
 
 }
