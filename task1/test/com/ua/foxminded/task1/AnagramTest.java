@@ -7,13 +7,9 @@ class AnagramTest {
     @Test
     void splitStringByWords_shouldReturnNullPointerException_whenInputIsNull() {
 
-        String expected = "Null is forbidden";
-
-        Exception actual = assertThrows(
-              NullPointerException.class,
-                () -> { throw new NullPointerException("Null is forbidden"); }
+        assertThrows(NullPointerException.class,
+                () -> { anagram.splitStringByWords(null); }
         );
-        assertEquals(expected, actual.getMessage());
     }
 
     @Test
